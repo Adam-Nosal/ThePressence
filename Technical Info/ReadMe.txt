@@ -1,0 +1,1 @@
+Tutaj wrzucamy dokumentacj¹ apropo wymagañ w trakcie budowania projektu na ró¿ne platformy
