@@ -30,6 +30,7 @@ Efekty naszych prac są widoczne na zdjęciu:
 ![alt text](tablica.jpg "Tablica")
 
 **Wstępne wymagania:**  
+
 1. Wymagania funkcjonalne:
   * poruszanie się postacią po planszy,
   * unikanie przeciwników sterowanych przez komputer,
