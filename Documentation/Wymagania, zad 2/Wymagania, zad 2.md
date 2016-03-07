@@ -11,7 +11,6 @@
 Aleksander Biela  
 Rafał Dziuryk  
 Arkadiusz Jagiełka  
-Paweł Kura   
 Marek Lubas  
 Wojciech Moska   
 Adam Nosal   
