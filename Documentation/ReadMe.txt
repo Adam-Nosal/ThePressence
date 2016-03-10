@@ -1,1 +1,1 @@
-Tutaj wrzucamy dokumentacje zwi¹zan¹ z zaliczeniem PzTGK
+Tutaj wrzucamy dokumentacje zwiÄ…zanÄ… z zaliczeniem PzTGK
