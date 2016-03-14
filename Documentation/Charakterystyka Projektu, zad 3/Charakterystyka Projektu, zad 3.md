@@ -11,6 +11,7 @@
 Aleksander Biela  
 Rafał Dziuryk  
 Arkadiusz Jagiełka  
+Paweł Kura  
 Marek Lubas  
 Wojciech Moska   
 Adam Nosal   
@@ -31,8 +32,9 @@ Bartosz Śliwa
 - **Programiści**  
   * Aleksander Biela  
   * Rafał Dziuryk  
-  * Arkadiusz Jagiełka  
-  * Bartosz Śliwa
+  * Arkadiusz Jagiełka    
+  * Paweł Kura  
+  * Bartosz Śliwa  
 
 **Metodyka pracy:**  
 Zamierzamy się oprzeć na metodyce Scrum, należącej do metodyk zwinnych (Agile). Swój wybór argumentujemy tym, że harmonogram oddawania poszczególnych zadań - gęstość terminów - pośrednio wymusza stosowanie metodyki zwinnej, a większość z nas jest zaznajomiona ze Scrumem. Poszczególne sprinty planujemy między danymi terminami z harmonogramu.
