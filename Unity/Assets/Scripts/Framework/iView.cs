@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface iView {
+public interface iView<T>
+    where T : ScriptableObject
+{
     
-    void Init();
+    void Init(T so);
     void UpdateView();
     void Close();
 }

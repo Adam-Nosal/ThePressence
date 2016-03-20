@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class PuzzleGameView : MonoBehaviour, iView
+class PuzzleGameView : MonoBehaviour, iView<PuzzleData>
 {
 
     void Awake()
@@ -13,14 +13,14 @@ class PuzzleGameView : MonoBehaviour, iView
         mController = this.gameObject.GetComponent<PuzzleGameController>();
     }
 
-    public void Init()
+    public void Init(PuzzleData puzzleData)
     {
-
+        mPuzzleDisplay.Init(puzzleData);
     }
 
     public void UpdateView()
     {
-        mPuzzleDisplay.Init();
+        mPuzzleDisplay.CreatePuzzleTiles();
         mPuzzleDisplay.JugglePuzzles();
     }
     

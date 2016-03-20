@@ -16,7 +16,7 @@ class PuzzleGameController : MonoBehaviour , iController
     [ContextMenu("Play")]
     public void Init()
     {
-        mView.Init();
+        mView.Init(puzzleData);
         mView.UpdateView();
     }
 
@@ -25,7 +25,7 @@ class PuzzleGameController : MonoBehaviour , iController
 
     }
 
-    public iView GetView()
+    public PuzzleGameView GetView()
     {
         return mView as PuzzleGameView;
     }
@@ -40,4 +40,7 @@ class PuzzleGameController : MonoBehaviour , iController
 
     [SerializeField]
     PuzzleGameView mView;
+
+    [SerializeField]
+    private PuzzleData puzzleData;
 }

@@ -43,10 +43,15 @@ public class PuzzleDisplay : MonoBehaviour
     private bool EnableTapping = false;
     
 
-    public void Init()
+    public void Init(PuzzleData pd)
     {
-        CreatePuzzleTiles();
+        PuzzleImage = pd.Texture;
+        Width = pd.PuzzleDimensions.x;
+        Height = pd.PuzzleDimensions.y;
+
     }
+
+
 
     public void JugglePuzzles()
     {
@@ -100,7 +105,56 @@ public class PuzzleDisplay : MonoBehaviour
         return EnableTapping;
     }
 
-	private PuzzleTile CheckMoveLeft(int Xpos, int Ypos, PuzzleTile thisTile)
+    public void CreatePuzzleTiles()
+    {
+        EnableTapping = false;
+        float TileWidth = Screen.height / Width;
+        float TileHeigth = Screen.height / Height;
+
+        // using the width and height variables create an array.
+        TileDisplayArray = new GameObject[Width, Height];
+
+        // set the scale and position values for this puzzle.
+        Scale = new Vector3(1.0f, 1.0f, 1.0f);
+        Tile.transform.localScale = Scale;
+        // used to count the number of tiles and assign each tile a correct value.
+        int TileValue = 0;
+
+        // spawn the tiles into an array.
+        for (int j = Height - 1; j >= 0; j--)
+        {
+            for (int i = 0; i < Width; i++)
+            {
+                // calculate the position of this tile all centred around Vector3(0.0f, 0.0f, 0.0f).
+                Position = new Vector3(((Scale.x * (i + 0.5f)) - (Scale.x * (Width / 2.0f))) * (10.0f + SeperationBetweenTiles) * 10.0f,
+                                      ((Scale.z * (j + 0.5f)) - (Scale.z * (Height / 2.0f))) * (10.0f + SeperationBetweenTiles) * 10.0f,
+                                      0.0f);
+
+                // set this location on the display grid.
+                DisplayPositions.Add(Position);
+
+                // spawn the object into play.
+                TileDisplayArray[i, j] = Instantiate(Tile, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f)) as GameObject;
+                TileDisplayArray[i, j].GetComponent<PuzzleTile>().Init(this, 100, 100);// TileWidth, TileHeigth);
+                TileDisplayArray[i, j].gameObject.transform.parent = this.transform;
+
+                // set and increment the display number counter.
+                PuzzleTile thisTile = TileDisplayArray[i, j].GetComponent<PuzzleTile>();
+                thisTile.ArrayLocation = new Vector2(i, j);
+                thisTile.GridLocation = new Vector2(i, j);
+                thisTile.LaunchPositionCoroutine(Position);
+                TileValue++;
+                RawImage tileRawImage = TileDisplayArray[i, j].GetComponent<RawImage>();
+                tileRawImage.texture = PuzzleImage;
+                tileRawImage.uvRect = new Rect((1.0f / Width) * (i), (1.0f / Height) * (j), (1.0f / Width), (1.0f / Height));
+
+            }
+        }
+
+
+    }
+
+    private PuzzleTile CheckMoveLeft(int Xpos, int Ypos, PuzzleTile thisTile)
 	{
 		// move left 
 		if((Xpos - 1)  >= 0)
@@ -285,52 +339,5 @@ public class PuzzleDisplay : MonoBehaviour
 		return new Vector2(WidthIndex, HeightIndex);
 	}
 
-	private void CreatePuzzleTiles()
-	{
-        EnableTapping = false;
-        float TileWidth = Screen.height / Width;
-        float TileHeigth = Screen.height / Height;
-
-        // using the width and height variables create an array.
-        TileDisplayArray = new GameObject[Width,Height];
-
-		// set the scale and position values for this puzzle.
-		Scale = new Vector3(1.0f, 1.0f, 1.0f);
-		Tile.transform.localScale = Scale;
-		// used to count the number of tiles and assign each tile a correct value.
-		int TileValue = 0;
-
-		// spawn the tiles into an array.
-		for(int j = Height - 1; j >= 0; j--)
-		{
-			for(int i = 0; i < Width; i++)
-			{
-				// calculate the position of this tile all centred around Vector3(0.0f, 0.0f, 0.0f).
-				Position = new Vector3(((Scale.x * (i + 0.5f))-(Scale.x * (Width/2.0f))) * (10.0f + SeperationBetweenTiles)*10.0f, 
-				                      ((Scale.z * (j + 0.5f))-(Scale.z * (Height/2.0f))) * (10.0f + SeperationBetweenTiles) * 10.0f,
-                                      0.0f);
-
-				// set this location on the display grid.
-				DisplayPositions.Add(Position);
-
-				// spawn the object into play.
-				TileDisplayArray[i,j] = Instantiate(Tile, new Vector3(0.0f, 0.0f, 0.0f) , Quaternion.Euler(0.0f, 0.0f, 0.0f)) as GameObject;
-                TileDisplayArray[i, j].GetComponent<PuzzleTile>().Init(this, 100, 100);// TileWidth, TileHeigth);
-                TileDisplayArray[i,j].gameObject.transform.parent = this.transform;
-
-				// set and increment the display number counter.
-				PuzzleTile thisTile = TileDisplayArray[i,j].GetComponent<PuzzleTile>();
-				thisTile.ArrayLocation = new Vector2(i,j);
-				thisTile.GridLocation = new Vector2(i,j);
-				thisTile.LaunchPositionCoroutine(Position);
-				TileValue++;
-                RawImage tileRawImage = TileDisplayArray[i, j].GetComponent<RawImage>();
-                tileRawImage.texture = PuzzleImage;
-                tileRawImage.uvRect = new Rect((1.0f / Width)* (i), (1.0f / Height) * (j), (1.0f / Width), (1.0f / Height));
-            
-            }
-		}
-
 	
-	}
 }
