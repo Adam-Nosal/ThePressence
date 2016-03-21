@@ -30,9 +30,9 @@ class PuzzleGameView : MonoBehaviour, iView<PuzzleData>
         mPuzzleDisplay.enabled = false;
     }
 
-    [SerializeField]
+    //[SerializeField]
     PuzzleDisplay mPuzzleDisplay;
-    [SerializeField]
+    //[SerializeField]
     PuzzleGameController mController;
 
 }

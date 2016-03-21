@@ -20,6 +20,7 @@ class PuzzleGameController : MonoBehaviour , iController
         mView.UpdateView();
     }
 
+	
     public void OnClose()
     {
 
@@ -38,7 +39,7 @@ class PuzzleGameController : MonoBehaviour , iController
     }
     
 
-    [SerializeField]
+    //[SerializeField]
     PuzzleGameView mView;
 
     [SerializeField]
