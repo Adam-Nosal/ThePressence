@@ -1,3 +1,24 @@
+# Scenariusz Gry
+**Praktyka Zespołowego Tworzenia Gier Komputerowych**  
+**Politechnika Śląska, AEiI, Informatyka**  
+
+**Prowadzący:** dr inż Michał Kawulok
+
+**Sekcja:** 1  
+**Kierownik sekcji:** Adam Nosal  
+
+**Skład sekcji:**  
+Aleksander Biela  
+Rafał Dziuryk  
+Arkadiusz Jagiełka  
+Marek Lubas  
+Wojciech Moska   
+Adam Nosal   
+Bartłomiej Szary   
+Bartosz Śliwa  
+
+<div style="page-break-after: always;"></div>
+
 ### Zarys Fabularny
 
 Akcja gry dzieje się w małej wiosce rybackiej na południu Walii w 1927 roku. Do brzegu wioski przybija stary kuter rybacki. Nie ma na nim załogi ani żadnych połowów. Kuter zostaje odkryty przez jednego z wioskowych rybaków w środku nocy. Następnego dnia zostaje on znaleziony w rynsztoku niedaleko centrum wioski, całkiem postradał zmysły. Gracz jest młodym detektywem wysłanym przez główny oddział policji w celi zbadania tej sprawy. Po przeprowadzeniu wywiadu z oszalałym rybakiem, dowiaduje się, że po znalezieniu kutra rybak został otoczony przez mgłę i oszołomiony przez nieludzką kreaturę, a wszystkiemu towarzyszyło dziwne zielone światło dobywające się spod pokładu kutra. Przed odejściem od rybaka, ten dostaje dziwnego ataku, w trakcie którego opisuje leżący nieopodal zakład psychiatryczny, istniejący od ponad 100 lat. Detektyw wyrusza aby dowiedzieć co się dzieje w zakładzie i jaki to ma związek z kutrem...
