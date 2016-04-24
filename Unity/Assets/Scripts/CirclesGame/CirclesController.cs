@@ -22,4 +22,9 @@ public class CirclesController : MonoBehaviour, iController {
 	void Update () {
 	
 	}
+
+    public void RotateCircle(RectTransform circle)
+    {
+        circle.Rotate(new Vector3(0, 0, 90));
+    }
 }
