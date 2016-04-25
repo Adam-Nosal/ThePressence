@@ -55,9 +55,13 @@ public class CirclesController : MonoBehaviour, iController {
                 while(firstCirlce == secondCircle)
                 {
                     secondCircle = rnd.Next(0, 4);
-                    if (firstCirlce != secondCircle)
+                    if (firstCirlce != secondCircle &&
+                        circles[secondCircle].GetComponent<Tuple>().isPaired == false)
                     {
                         circles[firstCirlce].GetComponent<Tuple>().tupleCircle = circles[secondCircle];
+                        circles[secondCircle].GetComponent<Tuple>().isPaired = true;
+                        pairFound = true;
+                        Debug.Log("PAIR FOUND" + firstCirlce + " "  + secondCircle);
                     }
                 }
             }
@@ -105,6 +109,7 @@ public class CirclesController : MonoBehaviour, iController {
             && circles[0].GetComponent<RectTransform>().eulerAngles.z == circles[4].GetComponent<RectTransform>().eulerAngles.z)
         {
             winImage.SetActive(true);
+            Debug.Log("WIN");
         }
     }
 }
