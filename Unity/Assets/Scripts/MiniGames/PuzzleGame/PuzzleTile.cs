@@ -31,6 +31,7 @@ public class PuzzleTile : MonoBehaviour , IPointerDownHandler
     {
         mPuzzleDisplay = sender;
         mRectTransform.sizeDelta = new Vector2( width, height);
+        mRectTransform.localScale =  new Vector3(1.0f, 1.0f, 1.0f);
     }
 
     public  void LaunchPositionCoroutine(Vector3 newPosition)

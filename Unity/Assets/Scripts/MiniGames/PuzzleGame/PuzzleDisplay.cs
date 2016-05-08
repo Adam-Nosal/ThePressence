@@ -135,6 +135,7 @@ public class PuzzleDisplay : MonoBehaviour
 
                 // spawn the object into play.
                 TileDisplayArray[i, j] = Instantiate(Tile, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 0.0f, 0.0f)) as GameObject;
+              
                 TileDisplayArray[i, j].GetComponent<PuzzleTile>().Init(this, 100, 100);// TileWidth, TileHeigth);
                 TileDisplayArray[i, j].gameObject.transform.parent = this.transform;
 
@@ -147,7 +148,7 @@ public class PuzzleDisplay : MonoBehaviour
                 RawImage tileRawImage = TileDisplayArray[i, j].GetComponent<RawImage>();
                 tileRawImage.texture = PuzzleImage;
                 tileRawImage.uvRect = new Rect((1.0f / Width) * (i), (1.0f / Height) * (j), (1.0f / Width), (1.0f / Height));
-
+                TileDisplayArray[i, j].transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             }
         }
 
