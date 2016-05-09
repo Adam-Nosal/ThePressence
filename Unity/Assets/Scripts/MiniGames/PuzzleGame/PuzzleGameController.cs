@@ -6,7 +6,7 @@ using UnityEngine;
 
 class PuzzleGameController : MonoBehaviour , iController
 {
-    void Awake()
+    void Start()
     {
         mView = this.gameObject.GetComponent<PuzzleGameView>();
     }
@@ -16,6 +16,7 @@ class PuzzleGameController : MonoBehaviour , iController
     [ContextMenu("Play")]
     public void Init()
     {
+        this.gameObject.SetActive(true);
         mView.Init(puzzleData);
         mView.UpdateView();
     }
@@ -23,7 +24,7 @@ class PuzzleGameController : MonoBehaviour , iController
 	
     public void OnClose()
     {
-
+        this.gameObject.SetActive(false);
     }
 
     public PuzzleGameView GetView()
@@ -39,7 +40,7 @@ class PuzzleGameController : MonoBehaviour , iController
     }
     
 
-    //[SerializeField]
+    [SerializeField]
     PuzzleGameView mView;
 
     [SerializeField]

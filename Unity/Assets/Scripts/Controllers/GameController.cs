@@ -13,7 +13,14 @@ public class GameController : MonoBehaviour {
     [Header("Player")]
     PlayerController player;
 
-    
+
+    public enum MiniGames
+    {
+        puzzleGame,
+        circleGame
+    };
+ 
+
     public static GameController GetInstance()
     {
         lock (padlock)
@@ -21,10 +28,10 @@ public class GameController : MonoBehaviour {
             if (instance == null)
             {
                 GameObject go;
-                go = GameObject.FindGameObjectWithTag("Gina");
+                go = GameObject.FindGameObjectWithTag(Helpers.TagHelper.GameControllerTag);
                 if (go == null)
                 {
-                    go = GameObject.Find("Gina(Singleton)");
+                    go = GameObject.Find(Helpers.TagHelper.GameControllerTag);
                     
                 }
                 instance = go.GetComponent<GameController>();
@@ -34,6 +41,33 @@ public class GameController : MonoBehaviour {
     }
     static readonly object padlock = new object();
     static private GameController instance = null;
+
+
+    public void ActivateMinigame(MiniGames game)
+    {
+        switch(game){
+
+            case MiniGames.circleGame:
+
+                circlesGameController.Init();
+                break;
+
+            case MiniGames.puzzleGame:
+                puzzleGameController.Init();
+                break;
+
+            default:
+
+                break;
+        }
+
+
+    }
+
+
+
+
+
 
 
 }

@@ -5,6 +5,9 @@ public class MinigameActivator : MonoBehaviour {
 
     GameController _controller;
 
+    public GameController.MiniGames MiniGameToActivate;
+
+
 
 
     void Awake()
@@ -13,6 +16,16 @@ public class MinigameActivator : MonoBehaviour {
     }
 
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == Helpers.TagHelper.PlayerTag)
+        {
+            Debug.Log("[MiniGameActivator] launching minigame " + MiniGameToActivate.ToString());
+            _controller.ActivateMinigame(MiniGameToActivate);
+        }
+
+
+    }
 
 
 

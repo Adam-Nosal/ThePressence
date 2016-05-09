@@ -13,16 +13,7 @@ public class CirclesController : MonoBehaviour, iController {
     
     public void Init()
     {
-        throw new NotImplementedException();
-    }
-
-    public void OnClose()
-    {
-        throw new NotImplementedException();
-    }
-
-    // Use this for initialization
-    void Start () {
+        this.gameObject.SetActive(true);
         switch (difficulty)
         {
             case DifficultyEnum.EASY:
@@ -40,7 +31,14 @@ public class CirclesController : MonoBehaviour, iController {
         }
 
         PrepareCircles();
-	}
+    }
+
+    public void OnClose()
+    {
+
+        this.gameObject.SetActive(false);
+    }
+
 
     private void RandomizePairs(int pairsNumber)
     {
@@ -82,10 +80,7 @@ public class CirclesController : MonoBehaviour, iController {
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-	
-	}
+   
 
     public void RotateCircle(GameObject circle)
     {
@@ -108,8 +103,7 @@ public class CirclesController : MonoBehaviour, iController {
             && circles[0].GetComponent<RectTransform>().eulerAngles.z == circles[3].GetComponent<RectTransform>().eulerAngles.z
             && circles[0].GetComponent<RectTransform>().eulerAngles.z == circles[4].GetComponent<RectTransform>().eulerAngles.z)
         {
-            winImage.SetActive(true);
-            Debug.Log("WIN");
+            OnClose();
         }
     }
 }

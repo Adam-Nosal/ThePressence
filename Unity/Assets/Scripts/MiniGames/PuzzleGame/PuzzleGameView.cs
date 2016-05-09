@@ -9,7 +9,7 @@ class PuzzleGameView : MonoBehaviour, iView<PuzzleData>
 
     void Awake()
     {
-        mPuzzleDisplay = this.gameObject.GetComponent<PuzzleDisplay>();
+        
         mController = this.gameObject.GetComponent<PuzzleGameController>();
     }
 
@@ -27,10 +27,11 @@ class PuzzleGameView : MonoBehaviour, iView<PuzzleData>
     public void Close()
     {
         mPuzzleDisplay.Close();
-        mPuzzleDisplay.enabled = false;
+       // mPuzzleDisplay.enabled = false;
+        mController.OnClose();
     }
 
-    //[SerializeField]
+    [SerializeField]
     PuzzleDisplay mPuzzleDisplay;
     //[SerializeField]
     PuzzleGameController mController;

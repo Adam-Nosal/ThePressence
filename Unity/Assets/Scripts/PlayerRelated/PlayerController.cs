@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField]
-    [Range(5.0f,15.0f)]
+    [Range(5.0f,100.0f)]
     private float speed = 7.5f;
 
  
