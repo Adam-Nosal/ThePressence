@@ -9,6 +9,7 @@ public class SpawnKeyboard : MonoBehaviour {
     public int nrOfImages;
     public GameObject spawnParent;
     public GameObject spawnPrefab;
+    public GameObject cipherWindow;
 
     private int[] myArray;
 
@@ -21,11 +22,9 @@ public class SpawnKeyboard : MonoBehaviour {
             var obj = Instantiate(spawnPrefab);
             obj.transform.SetParent(spawnParent.transform, false);
             obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/Cipher/Mark" + val);
+            var keyBoardClick = obj.GetComponent<KeyBoardClick>();
+            keyBoardClick.spawnParent = cipherWindow;
+            keyBoardClick.imgNumber = val;
         }
     }
-
-
-	void Update () {
-	
-	}
 }
