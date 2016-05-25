@@ -10,10 +10,10 @@ public class KeyBoardClick : MonoBehaviour {
     public int imgNumber;
 
     public void OnClickBehave() {
-        var img = GetComponent<Image>();
+        var img = GetComponentInChildren<KeyboardFace>();
         var obj = Instantiate(spawnPrefab);
         obj.transform.SetParent(spawnParent.transform, false);
-        obj.GetComponent<Image>().sprite = img.sprite;
+        obj.GetComponent<Image>().sprite = img.GetComponent<Image>().sprite;
         spawnParent.GetComponent<CipherCheck>().AddCodeNumber(imgNumber);
     }
 }

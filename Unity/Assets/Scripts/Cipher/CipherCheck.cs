@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CipherCheck : MonoBehaviour {
 
-    public List<int> codePattern;
+    List<int> codePattern;
     List<int> codeToCheck;
     public GameObject codeWindow;
     public Image wrongCode;
@@ -21,18 +21,22 @@ public class CipherCheck : MonoBehaviour {
 	    CheckCode();
         if (isEqual) {
             Debug.Log(" Win Da Game");
+            var controller = GetComponentInParent<CipherController>();
+            controller.OnClose();
         }
 	}
 
     void CheckCode() {
-        if (codePattern.Count == codeToCheck.Count) {
-             bool equal = codePattern.SequenceEqual(codeToCheck);
-            if (equal) {
-                isEqual = equal;
-            }
-            else {
-                CleanUpWindow();
-                CleanUpCode();
+        if (codePattern != null) {
+            if (codePattern.Count == codeToCheck.Count) {
+                bool equal = codePattern.SequenceEqual(codeToCheck);
+                if (equal) {
+                    isEqual = equal;
+                }
+                else {
+                    CleanUpWindow();
+                    CleanUpCode();
+                }
             }
         }
     }
@@ -55,5 +59,17 @@ public class CipherCheck : MonoBehaviour {
 
     public void AddCodeNumber(int number) {
         codeToCheck.Add(number);
+    }
+
+    public void SetCodePattern(int[] code) {
+        codePattern = code.ToList();
+    }
+
+    public void Init() {
+        throw new NotImplementedException();
+    }
+
+    public void OnClose() {
+        throw new NotImplementedException();
     }
 }

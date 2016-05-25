@@ -21,10 +21,12 @@ public class SpawnKeyboard : MonoBehaviour {
         foreach (var val in myArray) {
             var obj = Instantiate(spawnPrefab);
             obj.transform.SetParent(spawnParent.transform, false);
-            obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/Cipher/Mark" + val);
             var keyBoardClick = obj.GetComponent<KeyBoardClick>();
             keyBoardClick.spawnParent = cipherWindow;
             keyBoardClick.imgNumber = val;
+
+            var face = obj.GetComponentInChildren<KeyboardFace>();
+            face.GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/Cipher/Mark" + val);
         }
     }
 }
