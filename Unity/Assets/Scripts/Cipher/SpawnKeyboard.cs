@@ -6,14 +6,14 @@ using System.Linq;
 
 public class SpawnKeyboard : MonoBehaviour {
 
-    public int nrOfImages;
     public GameObject spawnParent;
     public GameObject spawnPrefab;
     public GameObject cipherWindow;
 
     private int[] myArray;
 
-    void Start () {
+    public void GenerateKeyboard (int nrOfImages) {
+
         myArray = Enumerable.Range(0, nrOfImages).ToArray();
         System.Random rnd = new System.Random();
         myArray = myArray.OrderBy(x => rnd.Next()).ToArray();
