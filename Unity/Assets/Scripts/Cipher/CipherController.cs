@@ -7,13 +7,15 @@ public class CipherController : MonoBehaviour, iController {
 
     private CipherView view;
 
-    void Awake() {
-        view = gameObject.GetComponent<CipherView>();
-    }
-
     [ContextMenu("Play")]
     public void Init(){
-        view.Init(cipherData);
+        view = gameObject.GetComponent<CipherView>();
+        if (view != null) {
+            view.Init(cipherData);
+        }
+        else {
+            Debug.LogError("Lack of Cipher View component");
+        }
     }
 
     public void OnClose(){
