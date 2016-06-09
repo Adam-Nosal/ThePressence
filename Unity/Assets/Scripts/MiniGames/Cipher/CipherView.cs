@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CipherView : MonoBehaviour, iView<CipherData> {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private SpawnKeyboard spawnKeyboard;
+    private CipherCheck cipherCheck;
+    private GameObject gamePrefab;
 
     public void Init(CipherData so) {
-        throw new System.NotImplementedException();
+        gamePrefab = Resources.Load<GameObject>("Prefabs/Cipher/Game");
+        var game = Instantiate(gamePrefab);
+        game.transform.SetParent(this.transform, false);
+        spawnKeyboard = GetComponentInChildren<SpawnKeyboard>();
+        cipherCheck = GetComponentInChildren<CipherCheck>();
+        spawnKeyboard.GenerateKeyboard(so.numberOfImages);
+        cipherCheck.SetCodePattern(so.codeNumbers);
     }
 
     public void UpdateView() {
@@ -22,6 +23,8 @@ public class CipherView : MonoBehaviour, iView<CipherData> {
     }
 
     public void Close() {
-        throw new System.NotImplementedException();
+        var tmp = GetComponentInChildren<Image>();
+        Destroy(tmp.gameObject);
+        
     }
 }

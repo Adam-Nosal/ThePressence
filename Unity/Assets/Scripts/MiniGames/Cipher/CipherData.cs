@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
+[CreateAssetMenu(fileName = "CipherData", menuName = "MinigameData/CipherData", order = 2)]
 public class CipherData : ScriptableObject {
-    // Use this for initialization
-    private void Start() {
-    }
 
-    // Update is called once per frame
-    private void Update() {
-    }
+    [SerializeField]
+    public int numberOfImages;
+
+    [SerializeField]
+    public int[] codeNumbers;
+
 }
