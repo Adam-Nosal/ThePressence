@@ -8,16 +8,22 @@ public class GameOverManager : MonoBehaviour {
 	private float restartTimer;
 	private float restartDelay = 4f;
 	private Animator animator;
+    [SerializeField]
 	private PlayerController player;
+    [SerializeField]
+    private AudioSource AudioSource;
+    [SerializeField]
+    private AudioClip GameOverSound;
 
 	void Awake () {
 		animator = GetComponent<Animator> ();
-		player = transform.parent.Find ("Player").GetComponent<PlayerController> ();
+		//player = transform.parent.Find ("Player").GetComponent<PlayerController> ();
 		player.OnPlayerDeath += Display;
 	}
 
 	void Display() {
 		animator.SetTrigger ("GameOver");
+        AudioSource.PlayOneShot(GameOverSound);
 		dead = true;
 	}
 

@@ -16,5 +16,8 @@ namespace Helpers
         public static string LOOK_JOYSTICK_HORIZONTAL = "HorizontalLook";
 
         public static string LOOK_JOYSTICK_VERTICAL = "VerticalLook";
+
+        public static string MOVE_HORIZONTAL = "Horizontal";
+        public static string MOVE_VERTICAL = "Vertical";
     }
 }

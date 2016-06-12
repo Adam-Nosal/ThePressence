@@ -34,27 +34,34 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float horiz = CnInputManager.GetAxis(InputHelper.MOVE_JOYSTICK_HORIZONTAL);
-        float vert = CnInputManager.GetAxis(InputHelper.MOVE_JOYSTICK_VERTICAL);
+        float horiz, vert;
+#if UNITY_ANDROID
+        horiz = CnInputManager.GetAxis(InputHelper.MOVE_JOYSTICK_HORIZONTAL);
+        vert = CnInputManager.GetAxis(InputHelper.MOVE_JOYSTICK_VERTICAL);
+#else
+        horiz = CnInputManager.GetAxis(InputHelper.MOVE_HORIZONTAL);
+        vert = CnInputManager.GetAxis(InputHelper.MOVE_VERTICAL);
 
-		mRigidbody2d.velocity = new Vector2(horiz * speed * auraManager.modifiedSpeed,
-											vert * speed * auraManager.modifiedSpeed);
+#endif
+        mRigidbody2d.velocity = new Vector2(horiz * speed * auraManager.modifiedSpeed,
+                                            vert * speed * auraManager.modifiedSpeed);
 
-        lookVector = new Vector3(horiz, vert, 0.0f);
+        mAnimationController.PlayWalkAnimation(horiz, vert);
+        //lookVector = new Vector3(horiz, vert, 0.0f);
 
-        Vector3 diff = lookVector - transform.position;
-        diff.Normalize();
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rot_z );
+        //Vector3 diff = lookVector - transform.position;
+        //diff.Normalize();
+        //float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.Euler(0f, 0f, rot_z );
 
         //animation handling
-        if (mRigidbody2d.velocity.x > 0 )
-            mAnimationController.PlayWalkAnimation(mRigidbody2d.velocity.x);
-        else
-        if ( mRigidbody2d.velocity.y > 0)
-            mAnimationController.PlayWalkAnimation(mRigidbody2d.velocity.y);
-        else
-            mAnimationController.PlayWalkAnimation(0.0f);
+        //if (mRigidbody2d.velocity.x > 0 )
+        //    mAnimationController.PlayWalkAnimation(mRigidbody2d.velocity.x);
+        //else
+        //if ( mRigidbody2d.velocity.y > 0)
+        //    mAnimationController.PlayWalkAnimation(mRigidbody2d.velocity.y);
+        //else
+        //    mAnimationController.PlayWalkAnimation(0.0f);
     }
 
     private void InitVariables()

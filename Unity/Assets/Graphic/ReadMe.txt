@@ -1,0 +1,1 @@
+Tutaj wrzucamy grafiki w formacie psd jak i ju¿ zapisane w formacie wyjœciowym

@@ -14,7 +14,6 @@ public class PlayerAnimationController : MonoBehaviour
     void Awake()
     {
         InitVariables();
-        PlayIdleAnimation();
     }
 
     
@@ -26,25 +25,13 @@ public class PlayerAnimationController : MonoBehaviour
 
     }
     
-    public void PlayReloadAnimation(bool origin)
+
+
+    public void PlayWalkAnimation(float hv, float vv)
     {
-         mAnimator.SetBool(AnimatorHelper.PLAYER_IS_RELOADING_PARAM, true);
-    }
+        mAnimator.SetFloat(AnimatorHelper.PLAYER_HORIZONTAL_VELOCITY_PARAM, hv);
+        mAnimator.SetFloat(AnimatorHelper.PLAYER_VERTICAL_VELOCITY_PARAM, vv);
 
-    public void PlayShootAnimation(bool origin)
-    {
-         mAnimator.SetBool(AnimatorHelper.PLAYER_IS_SHOOTING_PARAM, true);
-    }
-
-    public void PlayIdleAnimation(){
-
-              mAnimator.SetBool(AnimatorHelper.PLAYER_IS_SHOOTING_PARAM, false);
-             mAnimator.SetBool(AnimatorHelper.PLAYER_IS_RELOADING_PARAM, false);
-    }
-
-    public void PlayWalkAnimation(float velocity)
-    {
-        mAnimator.SetFloat(AnimatorHelper.PLAYER_VELOCITY_PARAM, velocity);
     }
     
 
