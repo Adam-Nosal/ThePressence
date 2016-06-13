@@ -28,5 +28,7 @@ public class SpawnKeyboard : MonoBehaviour {
             var face = obj.GetComponentInChildren<KeyboardFace>();
             face.GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/Cipher/Mark" + val);
         }
+
+        this.gameObject.GetComponent<GridLayoutGroup>().cellSize = new Vector2(80, 80);
     }
 }

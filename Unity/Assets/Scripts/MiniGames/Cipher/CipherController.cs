@@ -14,6 +14,8 @@ public class CipherController : MonoBehaviour, iController {
         this.cipherData = (CipherData)setting;
         mSender = sender;
 
+        this.gameObject.transform.parent.gameObject.SetActive(true);
+
         view = gameObject.GetComponent<CipherView>();
         if (view != null) {
             view.Init(cipherData);
