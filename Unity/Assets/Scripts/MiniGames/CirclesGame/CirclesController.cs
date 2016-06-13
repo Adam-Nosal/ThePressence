@@ -8,7 +8,7 @@ public class CirclesController : MonoBehaviour, iController {
 
 
     private float rotationAngle;
-    public DifficultyEnum difficulty;
+    public CirclesData difficulty;
     public GameObject[] circles;
     public GameObject winImage;
     
@@ -16,7 +16,7 @@ public class CirclesController : MonoBehaviour, iController {
     public void Init()
     {
         this.gameObject.SetActive(true);
-        switch (difficulty)
+        switch (difficulty.difficultyLevel)
         {
             case DifficultyEnum.EASY:
                 rotationAngle = 60f;

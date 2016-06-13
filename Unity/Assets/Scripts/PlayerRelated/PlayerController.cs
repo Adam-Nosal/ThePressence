@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector]
 	private AuraManager auraManager;
 
+    [SerializeField]
+    private Inventory playerInventory; 
+
 	public Vector3 lookVector;
 	public event Action OnPlayerDeath;
 

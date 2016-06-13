@@ -6,7 +6,8 @@ public class MinigameActivator : MonoBehaviour {
     GameController _controller;
 
     public GameController.MiniGames MiniGameToActivate;
-
+    [SerializeField]
+    public int RewardItemId = 0;
 
 
 

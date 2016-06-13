@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
@@ -8,6 +9,12 @@ public class GameController : MonoBehaviour {
     PuzzleGameController puzzleGameController;
     [SerializeField]
     CirclesController circlesGameController;
+    [SerializeField]
+    CipherController cipherGameController;
+
+    [Header("InventoryItems")]
+    [SerializeField]
+    List<InventoryItem> GlobalInventoryItemList;
 
 
     [Header("Player")]
@@ -17,7 +24,8 @@ public class GameController : MonoBehaviour {
     public enum MiniGames
     {
         puzzleGame,
-        circleGame
+        circleGame,
+        cipherGame
     };
  
 
@@ -54,6 +62,9 @@ public class GameController : MonoBehaviour {
 
             case MiniGames.puzzleGame:
                 puzzleGameController.Init();
+                break;
+            case MiniGames.cipherGame:
+                cipherGameController.Init();
                 break;
 
             default:
