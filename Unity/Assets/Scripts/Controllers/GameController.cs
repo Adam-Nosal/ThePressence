@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour {
 
 
     [Header("Player")]
+    [SerializeField]
     PlayerController player;
 
 
@@ -96,6 +97,19 @@ public class GameController : MonoBehaviour {
         return null;
     }
 
+    public bool PlayerHasItem(int itemID)
+    {
+        InventoryItem result = GlobalInventoryItemList.Find(item => item.GetItemId() == itemID);
+        if (result != null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     public InventoryItem GetNoteFromInventory()
     {
         if (GlobalInventoryItemList.Count != 0 && ItemToTakeIndex <= MaxItemsToTake)
@@ -111,6 +125,8 @@ public class GameController : MonoBehaviour {
         return null;
     }
 
+
+
     public void PauseEnemys(bool value)
     {
         GameObject[] list = GameObject.FindGameObjectsWithTag(Helpers.TagHelper.EnemyTag);
@@ -119,6 +135,7 @@ public class GameController : MonoBehaviour {
         {
             o.SendMessage("Pause", value);
         }
+        player.FreezeRigidbody(value);
     }
 
    

@@ -67,6 +67,18 @@ public class PlayerController : MonoBehaviour
         //    mAnimationController.PlayWalkAnimation(0.0f);
     }
 
+    public void FreezeRigidbody(bool value)
+    {
+        if (value)
+        {
+            this.mRigidbody2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            this.mRigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
     private void InitVariables()
     {
         if (mAnimationController == null)
