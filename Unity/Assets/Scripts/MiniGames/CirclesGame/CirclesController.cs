@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CirclesController : MonoBehaviour, iController {
 
@@ -31,6 +33,7 @@ public class CirclesController : MonoBehaviour, iController {
         }
 
         PrepareCircles();
+
     }
 
     public void OnClose()
@@ -104,6 +107,25 @@ public class CirclesController : MonoBehaviour, iController {
             && circles[0].GetComponent<RectTransform>().eulerAngles.z == circles[4].GetComponent<RectTransform>().eulerAngles.z)
         {
             OnClose();
+        }
+    }
+
+    public void HighlightCircle(GameObject chosenCircle)
+    {
+        Debug.Log("Button was highlighted" + chosenCircle.name );
+        chosenCircle.GetComponent<Image>().color = Color.red;
+        if (chosenCircle.GetComponent<Tuple>().tupleCircle != null)
+        {
+            chosenCircle.GetComponent<Tuple>().tupleCircle.GetComponent<Image>().color = Color.red;
+        }
+    }
+    public void UnHighlightCircle(GameObject chosenCircle)
+    {
+        Debug.Log("Button was highlighted" + chosenCircle.name);
+        chosenCircle.GetComponent<Image>().color = Color.white;
+        if (chosenCircle.GetComponent<Tuple>().tupleCircle != null)
+        {
+            chosenCircle.GetComponent<Tuple>().tupleCircle.GetComponent<Image>().color = Color.white;
         }
     }
 }
