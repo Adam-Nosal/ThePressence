@@ -6,6 +6,7 @@ using UnityEngine;
 
 class PuzzleGameController : MonoBehaviour , iController
 {
+    private GameObject mSender;
     void Start()
     {
         mView = this.gameObject.GetComponent<PuzzleGameView>();
@@ -14,8 +15,11 @@ class PuzzleGameController : MonoBehaviour , iController
 
 
     [ContextMenu("Play")]
-    public void Init()
+    public void Init(ScriptableObject setting, GameObject sender = null)
     {
+        this.puzzleData = (PuzzleData)setting;
+        mSender = sender;
+
         this.gameObject.SetActive(true);
         mView.Init(puzzleData);
         mView.UpdateView();
@@ -25,6 +29,8 @@ class PuzzleGameController : MonoBehaviour , iController
     public void OnClose()
     {
         this.gameObject.SetActive(false);
+        GameController.GetInstance().PauseEnemys(false);
+        mSender.SendMessage("Close");
     }
 
     public PuzzleGameView GetView()

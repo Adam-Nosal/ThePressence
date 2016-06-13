@@ -6,9 +6,14 @@ public class CipherController : MonoBehaviour, iController {
     public CipherData cipherData;
 
     private CipherView view;
+    private GameObject mSender;
 
     [ContextMenu("Play")]
-    public void Init(){
+    public void Init(ScriptableObject setting, GameObject sender = null)
+    {
+        this.cipherData = (CipherData)setting;
+        mSender = sender;
+
         view = gameObject.GetComponent<CipherView>();
         if (view != null) {
             view.Init(cipherData);
@@ -20,5 +25,8 @@ public class CipherController : MonoBehaviour, iController {
 
     public void OnClose(){
         view.Close();
+        GameController.GetInstance().PauseEnemys(false);
+
+        mSender.SendMessage("Close");
     }
 }

@@ -2,8 +2,8 @@
 using System.Collections;
 
 public interface iController {
-
-     void Init();
+   
+     void Init( ScriptableObject setting,GameObject sender =null);
      void OnClose();
 
 }

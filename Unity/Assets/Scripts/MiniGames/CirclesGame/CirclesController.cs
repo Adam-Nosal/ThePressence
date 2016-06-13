@@ -11,10 +11,14 @@ public class CirclesController : MonoBehaviour, iController {
     public CirclesData difficulty;
     public GameObject[] circles;
     public GameObject winImage;
+
+    private GameObject mSender;
     
-    
-    public void Init()
+    public void Init(ScriptableObject setting, GameObject sender = null)
     {
+        this.difficulty = (CirclesData) setting;
+        mSender = sender;
+
         this.gameObject.SetActive(true);
         Debug.Log("Difficulty" + difficulty.difficultyLevel);
         switch (difficulty.difficultyLevel)
@@ -41,6 +45,9 @@ public class CirclesController : MonoBehaviour, iController {
     {
 
         this.gameObject.SetActive(false);
+        GameController.GetInstance().PauseEnemys(false);
+
+        mSender.SendMessage("Close");
     }
 
 

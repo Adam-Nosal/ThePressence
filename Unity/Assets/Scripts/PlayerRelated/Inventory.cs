@@ -38,9 +38,9 @@ public class Inventory : MonoBehaviour {
         List = new List<InventoryItem>();
     }
 
-    public void AddItem()
+    public void AddItem(int keyId)
     {
-        InventoryItem key = _controller.GetKeyFromInventory();
+        InventoryItem key = _controller.GetKeyFromInventory(keyId);
         if (key != null)
         {
             Debug.Log("Key " + key.name.ToString());
@@ -63,6 +63,21 @@ public class Inventory : MonoBehaviour {
             if (result.Count != 0)
             {
                 return result;
+            }
+        }
+        return new List<InventoryItem>();
+    }
+
+    public List<InventoryItem> GetKeys()
+    {
+        if (List.Count != 0)
+        {
+            List<InventoryItem> result = List.Where(item => item.GetItemType() == InventoryItem.InventoryItemType.Key).ToList<InventoryItem>();
+            {
+                if (result.Count != 0)
+                {
+                    return result;
+                }
             }
         }
         return new List<InventoryItem>();

@@ -55,20 +55,20 @@ public class GameController : MonoBehaviour {
     static private GameController instance = null;
 
 
-    public void ActivateMinigame(MiniGames game)
+    public void ActivateMinigame(MiniGames game, ScriptableObject setting,  GameObject sender = null)
     {
         switch(game){
 
             case MiniGames.circleGame:
-
-                circlesGameController.Init();
+                
+                circlesGameController.Init(setting,sender);
                 break;
 
             case MiniGames.puzzleGame:
-                puzzleGameController.Init();
+                puzzleGameController.Init(setting, sender);
                 break;
             case MiniGames.cipherGame:
-                cipherGameController.Init();
+                cipherGameController.Init(setting, sender);
                 break;
 
             default:
@@ -76,17 +76,20 @@ public class GameController : MonoBehaviour {
                 break;
         }
 
+        PauseEnemys(true);
+        
 
     }
 
-    public InventoryItem GetKeyFromInventory()
+    public InventoryItem GetKeyFromInventory(int keyId)
     {
-        if(GlobalInventoryItemList.Count != 0 && ItemToTakeIndex <= MaxItemsToTake)
+        if(GlobalInventoryItemList.Count != 0)
         {
-            InventoryItem result = GlobalInventoryItemList.Find(item => item.GetItemId() == ItemToTakeIndex);
+            InventoryItem result = GlobalInventoryItemList.Find(item => item.GetItemId() == keyId);
             //Debug.Log("Key from global " + result.name.ToString());
             if (result != null)
             {
+                GlobalInventoryItemList.Remove(result);
                 return result;
             }
         }
@@ -101,14 +104,23 @@ public class GameController : MonoBehaviour {
             if(result != null)
             {
                 ItemToTakeIndex += 1;
+                GlobalInventoryItemList.Remove(result);
                 return result;
             }
         }
         return null;
     }
 
+    public void PauseEnemys(bool value)
+    {
+        GameObject[] list = GameObject.FindGameObjectsWithTag(Helpers.TagHelper.EnemyTag);
 
+        foreach (GameObject o in list)
+        {
+            o.SendMessage("Pause", value);
+        }
+    }
 
-
+   
 
 }

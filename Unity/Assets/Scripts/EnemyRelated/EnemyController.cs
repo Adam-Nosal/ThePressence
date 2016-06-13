@@ -8,7 +8,7 @@ using System.Collections.Generic;	// for lists
 	Any tweakable parameters are available in the Inspector tab.
 	It uses list of empty GameObjects as waypoints.
 */
-public class EnemyController : MonoBehaviour {
+public class EnemyController : iPausable {
 
 	public bool cyclic;
 	[HideInInspector]
@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	public override void EnemyUpdate () {
 		movement = CalculateMovement ();
 
 		// direction
@@ -200,4 +200,5 @@ public class EnemyController : MonoBehaviour {
 			state = 2;
 		}
 	}
+
 }
