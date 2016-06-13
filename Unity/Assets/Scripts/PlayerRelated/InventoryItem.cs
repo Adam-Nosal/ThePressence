@@ -19,6 +19,16 @@ public class InventoryItem : ScriptableObject
         this.picture = pictureO;
     }
 
+    public int GetItemId()
+    {
+        return itemId;
+        
+    }
+
+    public InventoryItemType GetItemType()
+    {
+        return type;
+    }
 
     public enum InventoryItemType
     {

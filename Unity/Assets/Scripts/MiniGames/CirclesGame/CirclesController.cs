@@ -16,6 +16,7 @@ public class CirclesController : MonoBehaviour, iController {
     public void Init()
     {
         this.gameObject.SetActive(true);
+        Debug.Log("Difficulty" + difficulty.difficultyLevel);
         switch (difficulty.difficultyLevel)
         {
             case DifficultyEnum.EASY:
@@ -45,6 +46,7 @@ public class CirclesController : MonoBehaviour, iController {
 
     private void RandomizePairs(int pairsNumber)
     {
+        Debug.Log(pairsNumber);
         System.Random rnd = new System.Random((int)DateTime.Now.Ticks);
         for (int i = 0; i < pairsNumber; i++)
         {
@@ -113,10 +115,10 @@ public class CirclesController : MonoBehaviour, iController {
     public void HighlightCircle(GameObject chosenCircle)
     {
         Debug.Log("Button was highlighted" + chosenCircle.name );
-        chosenCircle.GetComponent<Image>().color = Color.red;
+        chosenCircle.GetComponent<Image>().color = Color.green;
         if (chosenCircle.GetComponent<Tuple>().tupleCircle != null)
         {
-            chosenCircle.GetComponent<Tuple>().tupleCircle.GetComponent<Image>().color = Color.red;
+            chosenCircle.GetComponent<Tuple>().tupleCircle.GetComponent<Image>().color = Color.green;
         }
     }
     public void UnHighlightCircle(GameObject chosenCircle)

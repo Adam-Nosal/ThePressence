@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+	<data name="Note 1" xml:space="preserve">
+		<value>September 26, 1927
+
+One of our newcoming patients, Edward Brown, is showing symptoms of dellusions and paranoia. On the day of his arrival he was trying to convience us of some kind of evil force… Evil from the deeps, thats ridiculous. We began the standard procedures and if they won’t show any promise… I fear that another lobotomy will be at hand. I wrote down his mumblings down to the report:
+„I know it’s there. It’s coming. I saw it. Terror… The terror from the deeps. We can’t stop it. We have to please hi mor we are all done for… You can see it to, you won’t trick me. I know it, I know it!”
+This was his last words before the second dose of sedatives.
+</value>
+	</data>
+	<data name="Note 2" xml:space="preserve">
+		<value>October 2, 1927
+
+Some strange things have started to happen… Some of the patients went down to almost exactly same rambling as our newcomer. „Dark terror from the deep.” I am afraid that we will have to put Edward into isolation for the time being. 
+
+October 3, 1927
+
+This is the first day after Edward’s isolation. Unfortunately it did not do anything good both to him and to our patients. He spoke of some strange lights, symbol and ungodly depictions… Creatures with thousands of hundreds of Tentacles, flying demons, unspoken horrors. This is one of the hardest cases I have encountered in my carrer if I am to be honest. 
+</value>
+	</data>
+	<data name="Note 3" xml:space="preserve">
+		<value>October 10, 1927
+
+He is gone… I can’t believe it. He just… Disappeared. He was locked down in isolation ward. And now he is gone. Only some strange „glyphs” and markings were left on the wall in his room. Made with blood. His own blood I believe. Why to put himself through such suffering… 
+
+October 11, 1927
+
+Only a day passed since Edwards disapperance and some even stranger things have come to be… I think I am beggining to lose my mind along with my patients… Screaming, strange lights coming through the windows and under the doors. It’s not normal. This whole place wasn’t normal to begin with… But this? 
+</value>
+	</data>
+	<data name="Note 4" xml:space="preserve">
+		<value>October 20, 1927
+
+Most of the patients have died to some strange accidents. One fell down and fell on the edge of the table. Other was smashed down by a chandelier. And some… Took their own lives. I can’t blame them… I… I think I won’t keep up to all of this. Not anymore. 
+
+October 21, 1927
+
+Yet another life lost. The patients went mad. Screaming of ghosts in the asylum. They all went into a frenzy. Striking down all of the staff. I am the last one left. I barricaded myself in the office. I don’t think the door will last long. Maybe… Maybe Edward was right? Maybe there is some strange, unspoken evil? I won’t know it… This ends here for me… But… Something strange is happening behind the door to the isolation ward. They are closed now. Maybe… Whoever finds this notes will learn something from them. I didn’t manage to figure anything out. 
+</value>
+	</data>
+	<data name="Note 5" xml:space="preserve">
+		<value />
+	</data>
+</root>

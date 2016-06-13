@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 public class GameController : MonoBehaviour {
 
@@ -15,6 +17,8 @@ public class GameController : MonoBehaviour {
     [Header("InventoryItems")]
     [SerializeField]
     List<InventoryItem> GlobalInventoryItemList;
+    int ItemToTakeIndex = 1;
+    int MaxItemsToTake = 5;
 
 
     [Header("Player")]
@@ -75,7 +79,33 @@ public class GameController : MonoBehaviour {
 
     }
 
+    public InventoryItem GetKeyFromInventory()
+    {
+        if(GlobalInventoryItemList.Count != 0 && ItemToTakeIndex <= MaxItemsToTake)
+        {
+            InventoryItem result = GlobalInventoryItemList.Find(item => item.GetItemId() == ItemToTakeIndex);
+            //Debug.Log("Key from global " + result.name.ToString());
+            if (result != null)
+            {
+                return result;
+            }
+        }
+        return null;
+    }
 
+    public InventoryItem GetNoteFromInventory()
+    {
+        if (GlobalInventoryItemList.Count != 0 && ItemToTakeIndex <= MaxItemsToTake)
+        {
+            InventoryItem result = GlobalInventoryItemList.Find(item => item.GetItemId() == ItemToTakeIndex + 5);
+            if(result != null)
+            {
+                ItemToTakeIndex += 1;
+                return result;
+            }
+        }
+        return null;
+    }
 
 
 
