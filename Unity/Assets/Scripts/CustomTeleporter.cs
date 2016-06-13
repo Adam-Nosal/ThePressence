@@ -43,6 +43,11 @@ public class CustomTeleporter : MonoBehaviour
 
     public int NeededItemToPass = 0;
 
+    [SerializeField]
+    private GameObject lockSprite;
+    [SerializeField]
+    private Sprite KeySprite;
+
     void Start()
     {
         //Set the countdown ready to the time you chose
@@ -52,6 +57,12 @@ public class CustomTeleporter : MonoBehaviour
 
     void Update()
     {
+        if(lockSprite.activeInHierarchy)
+        if (NeededItemToPass == 0 || (NeededItemToPass != 0 && GameController.GetInstance().PlayerHasItem(NeededItemToPass)))
+        {
+            lockSprite.SetActive(false);
+        }
+
         //check if theres something/someone inside
         if (inside)
         {

@@ -34,22 +34,24 @@ public class EnemyController : iPausable {
 	private Vector3[] chaseWaypoints; 	// waypoints used in "chasing" state, which are: 
 										// waypoint from which enemy runs and waypoint to which it runs
 	private List<Vector3> iwlist;		// imported list
-	private List<GameObject> ewlist;	// external list
+    [SerializeField]
+    private WaypointList ewlist;	// external list
 
 	//==================================================================//
 
 	// Initialization
-	void Start () {
-		InitializeWaypointList (out ewlist);
-
-		if (ewlist.Count < 1) {
+	void Awake() {
+		//InitializeWaypointList (out ewlist);
+        
+        if (ewlist.waypointList.Count < 1)
+        {
 			Debug.LogError ("Enemy needs at least 1 waypoint!");
 			Debug.Break ();
 		}
 
 		// the only thing needed from waypoints is their position
 		iwlist = new List<Vector3> ();
-		foreach (GameObject go in ewlist) {
+		foreach (GameObject go in ewlist.waypointList) {
 			iwlist.Add (go.GetComponent<Transform> ().position);
 		}
 
@@ -78,12 +80,12 @@ public class EnemyController : iPausable {
 
 	//==================================================================//
 
-	void InitializeWaypointList(out List<GameObject> golist) {
-		// find the list in hierarchy
-		objectName = transform.parent.name + "/WaypointList";
-		GameObject obj = GameObject.Find (objectName);
-		golist = obj.GetComponent<WaypointList> ().waypointList;
-	}
+    //void InitializeWaypointList(out List<GameObject> golist) {
+    //    // find the list in hierarchy
+    //    objectName = transform.parent.name + "/WaypointList";
+    //    GameObject obj = GameObject.Find (objectName);
+    //    golist = obj.GetComponent<WaypointList> ().waypointList;
+    //}
 
 	#region Movement
 	// easing effect while going between waypoints
